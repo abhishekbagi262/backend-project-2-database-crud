@@ -1,20 +1,33 @@
-# Database Integration (CRUD) REST API
+# Backend Project 2 – Database Integration (CRUD)
 
-A backend REST API built with **Python, Flask, Flask-SQLAlchemy, and SQLite** as part of the Decode Labs Backend Development Internship.
+A REST API built with Python, Flask, Flask-SQLAlchemy, and SQLite to demonstrate database integration and complete CRUD operations.
 
-This project extends REST API fundamentals by adding a database layer for persistent user data and implementing complete **CRUD (Create, Read, Update, Delete)** operations.
+This project was developed as part of my Backend Development Internship at Decode Labs.
 
-##  Features
+## 📌 Project Overview
 
-- RESTful API built with Flask
+This project extends REST API fundamentals by connecting a Flask API to a database for persistent data storage.
+
+The API allows users to be:
+
+- Created
+- Retrieved
+- Updated
+- Deleted
+
+It also includes validation to prevent duplicate email entries.
+
+## Features
+
+- REST API built using Flask
 - SQLite database integration
 - SQLAlchemy ORM
 - User data persistence
-- Create, Read, Update, and Delete operations
-- Required-field validation
+- Complete CRUD operations
+- Input validation
 - Duplicate email prevention
-- Error handling with appropriate HTTP status codes
-- JSON-based API responses
+- Structured JSON responses
+- HTTP status codes for success and errors
 
 ## 🛠️ Technologies Used
 
@@ -24,20 +37,20 @@ This project extends REST API fundamentals by adding a database layer for persis
 - SQLAlchemy
 - SQLite
 - REST API
-- JSON
+- Git & GitHub
 
-## 📋 User Schema
+## 🗄️ User Schema
 
 Each user contains:
 
 | Field | Type | Description |
 |---|---|---|
-| `id` | Integer | Unique user identifier |
-| `name` | String | User's name |
-| `course` | String | User's course |
-| `email` | String | User's email address |
+| `id` | Integer | Unique user ID |
+| `name` | String | User name |
+| `course` | String | Course name |
+| `email` | String | Unique email address |
 
-The `email` field is unique to prevent duplicate entries.
+The `id` field is the primary key, while `email` is unique to prevent duplicate entries.
 
 ## 🔗 API Endpoints
 
@@ -45,18 +58,17 @@ The `email` field is unique to prevent duplicate entries.
 |---|---|---|
 | POST | `/users` | Create a new user |
 | GET | `/users` | Retrieve all users |
-| PUT | `/users/<id>` | Update an existing user |
+| GET | `/users/<id>` | Retrieve a specific user |
+| PUT | `/users/<id>` | Update a user |
 | DELETE | `/users/<id>` | Delete a user |
 
-## 📌 Example Request
+## 📥 Create User
 
-### Create User
-
-**POST `/users`**
+### Request
 
 ```json
 {
     "name": "Abhishek",
     "course": "Backend Development",
-    "email": "abhishek@example.com"
+    "email": "abhishek.project2@example.com"
 }
